@@ -136,8 +136,7 @@
         "type": "object",
         "properties": {
           "screen_name": {
-            "type": "text",
-            "index": "not_analyzed"
+            "type": "text"
           }
         }
       },
