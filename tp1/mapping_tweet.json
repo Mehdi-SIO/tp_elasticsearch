@@ -119,15 +119,15 @@
     "dynamic": "false",
     "properties": {
       "text": {
-        "type": "string",
+        "type": "text",
         "analyzer": "text_analyzer",
         "fields": {
           "text_raw": {
-            "type": "string",
+            "type": "text",
             "analyzer": "not_really_analyzer"
           },
           "text_language": {
-            "type": "string",
+            "type": "text",
             "analyzer": "language_analyzer"
           }
         }
@@ -136,7 +136,7 @@
         "type": "object",
         "properties": {
           "screen_name": {
-            "type": "string",
+            "type": "text",
             "index": "not_analyzed"
           }
         }
