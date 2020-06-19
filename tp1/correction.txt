@@ -1,0 +1,65 @@
+# Question 1 - Combien de tweets parlent de java ?
+
+curl -XGET "localhost:9200/tweet/_count?q=JAVA&pretty" => 78 Mais requête sur tous les champs.
+
+curl -XGET "localhost:9200/tweet/_count?pretty"  -H 'Content-Type: application/json' -d '
+    {
+      "query": {
+        "bool": {
+          "must": [
+            {
+              "match": {
+                "text": "JAVA"
+              }
+            }
+          ]
+        }
+      }
+    }'
+
+
+Résultat: 48
+
+# Question 2 - Trouver tous les tweets envoyés entre le 12 et le 18 mars 2016
+
+curl -XGET "localhost:9200/tweet/_search?pretty"  -H 'Content-Type: application/json' -d '
+    {
+      "query": {
+        "range": {
+          "created_at": {
+            "gte": "12-03-16",
+            "lte": "18-03-16",
+            "format": "dd-MM-yy"
+          }
+        }
+      }
+    }'
+
+Résultat: 1361
+
+
+
+# Question 3 - Trouver tous les tweets parlant de JAVA envoyés entre le 12 et le 18 mars 2016
+
+curl -XGET "localhost:9200/tweet/_count?pretty"  -H 'Content-Type: application/json' -d '
+{
+  "query": {
+    "bool" : {
+      "must" : {
+        "term" : { "text" : "java" }
+      },
+      "filter" : {
+        "range" : {"created_at" : { "gte" : "12-03-16", "lte" : "18-03-16", "format": "dd-MM-yy"}}
+      }
+    }
+  }
+}
+'
+
+Résultat: 19
+
+# Question 4 - Quels sont les mots les plus tweetés ?
+
+
+# Question 5 - Quels sont les mots les plus tweetés parmi les tweets parlant de nodejs ?
+
