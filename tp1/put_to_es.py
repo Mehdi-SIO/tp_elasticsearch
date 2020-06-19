@@ -3,17 +3,19 @@ import json
 import sys
 
 es = Elasticsearch()
-c = 1
-
+counter = 1
 
 def log(c):
-	sys.stdout.write(str(c)+' documents indexed \r')
-	sys.stdout.flush()
+        sys.stdout.write(str(counter)+' documents indexed \r')
+        sys.stdout.flush()
 
 with open('data.txt') as f:
-	for line in f.readlines():
-		line_id = c
-		log(c)
-		c += 1
-		line = json.loads(line)
-		es.index(line,  'tweets', 'tweet', line_id)
+        for line in f.readlines():
+                line_id = counter
+                log(counter)
+                counter += 1
+                line = json.loads(line)
+                print(line)
+                es.index(index="tweet", id=line_id, body=line)
+
+print("Data loaded in Elasticsearch within tweet index")
