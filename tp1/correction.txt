@@ -60,6 +60,46 @@ Résultat: 19
 
 # Question 4 - Quels sont les mots les plus tweetés ?
 
+curl -X GET "localhost:9200/tweet/_search?pretty" -H 'Content-Type: application/json' -d'
+{
+    "query" : {
+         "match_all" : {}
+    },
+    "aggregations" : {
+        "my_sample" : {
+            "sampler" : {
+                "shard_size" : 100
+            },
+            "aggregations": {
+                "keywords" : {
+                    "significant_text" : { "field" : "text" }
+                }
+            }
+        }
+    },
+    "size": 0
+}
+
 
 # Question 5 - Quels sont les mots les plus tweetés parmi les tweets parlant de nodejs ?
 
+curl -X GET "localhost:9200/tweet/_search?pretty" -H 'Content-Type: application/json' -d'
+{
+    "query" : {
+        "match" : {"text" : "java"}
+    },
+    "aggregations" : {
+        "my_sample" : {
+            "sampler" : {
+                "shard_size" : 100
+            },
+            "aggregations": {
+                "keywords" : {
+                    "significant_text" : { "field" : "text" }
+                }
+            }
+        }
+    },
+    "size": 0
+}
+'
