@@ -1,0 +1,17 @@
+https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery-bootstrap-cluster.html#modules-discovery-bootstrap-cluster-joining
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery-settings.html
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-network.html
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/discovery-settings.html
+
+https://stackoverflow.com/questions/55964071/cannot-add-node-to-cluster-elasticsearch
+
+https://discuss.elastic.co/t/elasticsearch-7-cluster-setup-with-3-nodes/177016
+
+https://discuss.elastic.co/t/im-getting-master-not-discovered-exception-on-remote-server/188508
+
+https://stackoverflow.com/questions/56790620/master-not-discovered-exception-when-trying-to-configure-elastic-search-on-rem
+
+https://logz.io/blog/elasticsearch-cluster-tutorial/

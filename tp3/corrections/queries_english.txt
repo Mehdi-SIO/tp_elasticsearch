@@ -1,0 +1,24 @@
+curl -X GET "localhost:9200/comics/_search?pretty" -H 'Content-Type: application/json' -d'
+{
+  "query": {
+    "match": {
+      "summary": {
+        "query": "Then, inverted by the events of Axis, Deadpool puts down the guns",
+        "operator": "and"
+      }
+    }
+  }
+}'
+
+
+curl -X GET "localhost:9200/comics/_search?pretty" -H 'Content-Type: application/json' -d'
+{
+  "query": {
+    "match": {
+      "summary": {
+        "query": "Then, invert by the event Axis, Deadpool puts down the gun",
+        "operator": "and"
+      }
+    }
+  }
+}'
